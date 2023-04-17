@@ -1,0 +1,44 @@
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeDemographics
+
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeSalary
+
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Inner Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Full Outer Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Left Outer Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT *
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Right Outer Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT EmployeeDemographics.EmployeeID , FirstName , LastName , JobTitle , Salary
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Inner Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+
+SELECT EmployeeDemographics.EmployeeID , FirstName , LastName , Salary
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Inner Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+WHERE FirstName <> 'Michael'
+ORDER BY Salary DESC
+
+SELECT JobTitle , AVG(Salary) AS Average_Salary
+FROM SQL_First_Database.dbo.EmployeeDemographics
+Inner Join SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
+WHERE JobTitle = 'Salesman'
+GROUP BY JobTitle
