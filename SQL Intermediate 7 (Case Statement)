@@ -1,0 +1,20 @@
+--SELECT FirstName , LastName , Age,
+--CASE
+--	WHEN Age > 30 THEN 'Old'
+--	WHEN Age BETWEEN 27 AND 30 THEN 'Young'
+--	ELSE 'Baby'
+--END as AgeGrowth
+--FROM SQL_First_Database.dbo.EmployeeDemographics
+--WHERE Age is NOT NULL
+--ORDER BY Age
+
+SELECT FirstName , LastName , JobTitle , Salary,
+CASE
+	WHEN JobTitle = 'Salesman' THEN Salary + (Salary * .10)
+	WHEN JobTitle = 'Accountant' THEN Salary + (Salary * .05)
+	WHEN JobTitle = 'HR' THEN Salary + (Salary * .000001)
+	ELSE Salary + (Salary * 0.3)
+END AS SalaryAfterRaise
+FROM SQL_First_Database.dbo.EmployeeDemographics
+JOIN SQL_First_Database.dbo.EmployeeSalary
+	ON EmployeeDemographics.EmployeeID = EmployeeSalary.EmployeeID
