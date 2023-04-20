@@ -1,0 +1,17 @@
+SELECT FirstName + ' ' + LastName AS FULLNAME
+FROM SQL_First_Database.dbo.EmployeeDemographics
+
+SELECT AVG(Age) AS AVERAGEAGE
+FROM SQL_First_Database.dbo.EmployeeDemographics
+
+SELECT DEMO.EmployeeID , SAL.Salary
+FROM SQL_First_Database.dbo.EmployeeDemographics AS DEMO
+JOIN SQL_First_Database.dbo.EmployeeSalary AS SAL
+	ON Demo.EmployeeID = SAL.EmployeeID
+
+SELECT Demo.EmployeeID ,Demo.FirstName, Sal.JobTitle, Ware.Age
+FROM SQL_First_Database.dbo.EmployeeDemographics AS Demo
+LEFT JOIN SQL_First_Database.dbo.EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
+LEFT JOIN SQL_First_Database.dbo.WareHouseEmployeeDemographics AS Ware
+	ON Demo.EmployeeID = Ware.EmployeeID
