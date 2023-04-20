@@ -1,0 +1,17 @@
+SELECT * 
+FROM SQL_First_Database.dbo.EmployeeDemographics
+
+SELECT * 
+FROM SQL_First_Database.dbo.EmployeeSalary
+
+SELECT FirstName , LastName ,Gender , Salary
+, COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
+FROM SQL_First_Database..EmployeeDemographics AS Demo
+JOIN SQL_First_Database..EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
+
+SELECT FirstName,LastName,Gender,Salary,COUNT(Gender)
+FROM SQL_First_Database..EmployeeDemographics AS Demo
+JOIN SQL_First_Database..EmployeeSalary AS Sal
+	ON Demo.EmployeeID = Sal.EmployeeID
+GROUP BY FirstName , LastName , Gender , Salary
